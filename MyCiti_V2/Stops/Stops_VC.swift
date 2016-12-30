@@ -19,6 +19,7 @@ class Stops_VC: Sub_UIViewController {
 	@IBOutlet weak var lblClosestDistance: UILabel!
 	@IBOutlet weak var lblClosestName: UILabel!
 	@IBOutlet weak var viewClosestBar: UIView!
+    @IBOutlet weak var btnIcon: UIButton!
 	@IBOutlet weak var constraintClosestBottom: NSLayoutConstraint!
 	
 	// Variables
@@ -29,7 +30,6 @@ class Stops_VC: Sub_UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-//		tblStops.tableHeaderView = searchBar
 		tblStops.register(UINib(nibName: "Stop_Cell", bundle: nil), forCellReuseIdentifier: "stop_cell")
         navBar?.setTitle(title: "Stops")
         
@@ -63,6 +63,11 @@ class Stops_VC: Sub_UIViewController {
 	}
 
 	@IBAction func openClosestStop(_ sender: Any) {
+        if handler != nil {
+            handler!(closestStop!)
+            return
+        }
+        
 		let vc = storyboard?.instantiateViewController(withIdentifier: "times_vc") as! Times_VC
 		vc.stop = closestStop!
 		self.navigationController?.pushViewController(vc, animated: false)
@@ -135,12 +140,18 @@ extension Stops_VC: UITableViewDelegate, UITableViewDataSource {
 
 extension Stops_VC {
 	func loadContents(stop: Stop) {
+        if handler != nil {
+            btnIcon.setImage(UIImage(named: "checked"), for: .normal)
+            btnIcon.imageView?.image! = btnIcon.imageView!.image!.withRenderingMode(.alwaysTemplate)
+            btnIcon.imageView?.tintColor = UIColor.flatBlue()
+        }
+        
 		let stopLocation = CLLocation(latitude: stop.coords.latitude, longitude: stop.coords.longitude)
 		let distance = locManager.locManager.location?.distance(from: stopLocation)
 		
 		if distance != nil {
 			if distance! < 1000.0 {
-				lblClosestDistance.text = "\(distance!.format(f: ".0")) m"
+				lblClosestDistance.text = "\(Int(distance!)) m"
 			} else {
 				lblClosestDistance.text = "\((distance!/1000).format(f: "0.1")) km"
 			}

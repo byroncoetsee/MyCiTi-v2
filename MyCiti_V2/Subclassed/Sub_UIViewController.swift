@@ -34,10 +34,6 @@ class Sub_UIViewController: UIViewController {
 		showNavigationBar()
     }
 	
-//	override func viewDidLayoutSubviews() {
-//		self.loadingView = getLoadingView()
-//	}
-	
 	func showNavigationBar() {
 		self.navigationController!.navigationBar.setBackgroundImage(nil, for: .default)
 	}

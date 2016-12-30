@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<string>NO</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -29,7 +29,7 @@
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoiYnlyb25jb2V0c2VlIiwiYSI6ImRacUQzS2sifQ.WbF5R5mwkikWyEHi6-EKyw</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your location is needed in order to notify you when to transfer to another bus during a trip, to find the closest stop and to provide you with distance information.</string>
+	<string>The app will soon be able to notify you when to change busses during your journey. For now however, the app doesn't use your location in the background.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app doesn't need access to your photos... This notice was an Apple requirement for some reason so you can safely deny access.</string>
 	<key>UIBackgroundModes</key>

@@ -78,7 +78,7 @@ class Main_VC: Sub_UIViewController {
 	}
 	
 	@IBAction func showAlerts(_ sender: Any) {
-		UserDefaults.standard.setValue(Date().formatToActiveRecord, forKey: "lastAlertsViewed")
+		UserDefaults.standard.setValue(Date.timeIntervalSinceReferenceDate, forKey: "lastAlertsViewed")
 		UserDefaults.standard.synchronize()
 		
 		if global.alerts.count == 0 {
@@ -98,16 +98,16 @@ class Main_VC: Sub_UIViewController {
 	
 	func loadAlerts() {
 		spinnerAnnoun.startAnimating()
-		let lastAlertsViewed = (UserDefaults.standard.object(forKey: "lastAlertsViewed") as? String)?.formatFromActiveRecord
 		
 		api.fetchFirebaseAlerts(completion: {
 			alerts in
+            let lastAlertsViewed = UserDefaults.standard.object(forKey: "lastAlertsViewed") as? TimeInterval
 			var newAlertsCount = 0
 			
 			for alert in alerts {
                 if lastAlertsViewed == nil
-                    || alert.created > lastAlertsViewed!
                     || alert.created == (NSDate(timeIntervalSince1970: 0.0) as Date)
+                    || alert.created.timeIntervalSinceReferenceDate > lastAlertsViewed!
                     && alert.created > Date().add(components: [Calendar.Component.day:-3])
                 {
 					newAlertsCount += 1

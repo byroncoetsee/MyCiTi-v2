@@ -12,11 +12,11 @@ class Sub_UINavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
 	
-	func setTitle(title: String, colour: UIColor = UIColor.white) {
+	func setTitle(title: String) {
 		navigationBar.topItem!.title = title
-		navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: colour]
 	}
 	
 	override func pushViewController(_ viewController: UIViewController, animated: Bool) {

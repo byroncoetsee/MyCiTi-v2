@@ -434,6 +434,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnIcon" destination="Abz-fb-nR4" id="lDA-JE-9yt"/>
                         <outlet property="constraintClosestBottom" destination="o60-LU-z5R" id="tkY-ne-7au"/>
                         <outlet property="lblClosestDistance" destination="AA9-Vz-pmV" id="xO0-6a-op0"/>
                         <outlet property="lblClosestName" destination="oFi-cA-blD" id="X1J-8M-hhS"/>
