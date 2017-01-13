@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAnalytics
+import RSEmailFeedback
+import SCLAlertView
 
 class Alert_Cell: UITableViewCell {
 
@@ -53,19 +56,79 @@ class Alert_Cell: UITableViewCell {
 			imgIcon.image = UIImage(named: "cross")
 			break
 		}
-		
+        
+        self.selectionStyle = .none
+        
 		addAppearances()
 	}
 	
 	func addAppearances() {
-//		let shadowView = UIView(frame: viewContainer.frame)
 		backgroundColor = UIColor.clear
 		layer.shadowOffset = CGSize(width: 0, height: 0)
 		layer.shadowOpacity = 0.5
 		layer.shadowRadius = 5
-//		insertSubview(shadowView, belowSubview: viewContainer)
 		
 		viewContainer.layer.cornerRadius = 10
 		viewContainer.clipsToBounds = true
 	}
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        print("SELECTED CELL")
+        
+        if selected {
+            if alert.clickable != nil {
+                FIRAnalytics.logEvent(withName: "clicked_alert", parameters: [
+                    "name": alert.heading as NSObject
+                    ])
+                
+                switch alert.clickable!.type {
+                case .url: url()
+                    break
+                    
+                case .email: email()
+                    break
+                    
+                default: break
+                }
+            }
+        }
+    }
+    
+    func url() {
+        let urlString = (alert.clickable!.content as! Alert.Url).url
+        if let url = URL(string: urlString) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    func email() {
+        let emailFeedback = RSEmailFeedback()
+        emailFeedback.toRecipients = ["byroncoetsee@gmail.com"]
+        emailFeedback.subject = "MyCiti app feedback"
+        
+        let vc = (UIApplication.shared.delegate as! AppDelegate).activeViewController
+        emailFeedback.show(on: vc, withCompletionHandler: {
+            result, error in
+            
+            if error == nil {
+                switch result {
+                case MFMailComposeResult.sent:
+                    SCLAlertView().showSuccess("Thanks!", subTitle: "Thank you for the feedback - it's what keeps the app working :)")
+                    break
+                default:
+                    break
+                }
+            } else {
+                print(error)
+                switch error! {
+                case MFMailComposeError.sendFailed:
+                    SCLAlertView().showError("Sending failed", subTitle: "Double check you have setup your email correctly and have an active internet connection")
+                    break
+                default:
+                    SCLAlertView().showError("Hmm", subTitle: error!.localizedDescription)
+                    break
+                }
+            }
+        })
+    }
 }

@@ -50,9 +50,9 @@ class Main_VC: Sub_UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		if global.stopList.count == 0 {
-			showLoading(cancelButton: false)
+            showLoading(message: "Updating...", cancelButton: false)
 		}
-		fetchInformation()
+        self.fetchInformation()
 	}
 	
 	func applyViewAppearances() {
@@ -150,7 +150,7 @@ class Main_VC: Sub_UIViewController {
 	}
 	
 	func fetchInformation() {
-		global.firebaseConfig.fetch(completionHandler: {_, _ in
+		global.firebaseConfig.fetch(withExpirationDuration: TimeInterval(60), completionHandler: {_, _ in
 			global.firebaseConfig.activateFetched()
 			
 			// App Version
@@ -161,11 +161,13 @@ class Main_VC: Sub_UIViewController {
 				
 				var latestVersion = global.firebaseConfig.configValue(forKey: "appVersion").stringValue!
 				latestVersion = latestVersion.replacingOccurrences(of: ".", with: "")
-				
-				if Int(currentVersion)! < Int(latestVersion)! {
-					SCLAlertView().showInfo("Update me!", subTitle: "You need to update the app. You might miss your bus otherwise...")
-				}
-			}
+                
+                if Int(currentVersion) != nil && Int(latestVersion) != nil {
+                    if Int(currentVersion)! < Int(latestVersion)! {
+                        SCLAlertView().showInfo("Update me!", subTitle: "You need to update the app. You might miss your bus otherwise...")
+                    }
+                }
+            }
 			
 			// Heading
 			if global.firebaseConfig.configValue(forKey: "mainHeading").stringValue != nil {

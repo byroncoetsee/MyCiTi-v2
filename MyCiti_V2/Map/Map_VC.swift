@@ -8,6 +8,7 @@
 
 import UIKit
 import Mapbox
+import FirebaseCrash
 
 class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
 	
@@ -53,6 +54,7 @@ class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
 	
 	func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool { return true }
 	func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        FIRCrashMessage((annotation as! Sub_MGLPointAnnotation).stop.name)
 		let vc = self.storyboard?.instantiateViewController(withIdentifier: "times_vc") as! Times_VC
 		vc.stop = (annotation as! Sub_MGLPointAnnotation).stop
 		self.navigationController?.pushViewController(vc, animated: false)

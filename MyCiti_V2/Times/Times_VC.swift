@@ -35,7 +35,10 @@ class Times_VC: Sub_UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		FIRAnalytics.setUserPropertyString(stop.name, forName: "times_for_stop")
+        FIRAnalytics.logEvent(withName: "viewed_times", parameters: [
+            "name": stop.name as NSObject,
+            "hour": Date().hour as NSObject
+            ])
 		
 		navBar?.setTitle(title: stop.name)
 		tblTimes.register(UINib(nibName: "Time_Cell", bundle: nil), forCellReuseIdentifier: "time_cell")
@@ -50,7 +53,7 @@ class Times_VC: Sub_UIViewController {
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		showLoading()
+		showLoading(message: "Fetching schedule...")
 		getTimes()
 	}
 	

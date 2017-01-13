@@ -32,10 +32,35 @@ enum LegType: String {
 }
 
 struct Alert {
+    
+    struct Clickable {
+        let type: ClickableType
+        let content: AnyObject
+    }
+    
+    enum ClickableType {
+        case url
+        case email
+        case none
+    }
+    
+    struct Url {
+        let url: String
+    }
+    
+    struct Email {
+        let to: String
+        let subject: String
+        let body: String
+    }
+    
 	let heading: String!
 	let body: String!
 	let created: Date!
 	let condition: AlertCondition!
+    let clickable: Clickable?
+//    let clickableType: ClickableType!
+//    let clickableContent: AnyObject! = nil
 }
 
 struct Agency {

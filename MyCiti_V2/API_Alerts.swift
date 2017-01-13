@@ -26,7 +26,13 @@ extension API {
 				for alert in alerts {
 					let alertObject = objectCreator.jsonToAlert(heading: alert.0, json: alert.1)
 					
-					if !alert.1["ignore"].exists() { alertsCollection.append(alertObject) }
+                    #if DEBUG
+                        alertsCollection.append(alertObject)
+                    #else
+                        if !alert.1["ignore"].exists() {
+                            alertsCollection.append(alertObject)
+                        }
+                    #endif
 				}
 				
 				global.alerts = alertsCollection.sorted { $0.created! > $1.created }

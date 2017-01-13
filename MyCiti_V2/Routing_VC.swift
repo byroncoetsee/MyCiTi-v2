@@ -9,6 +9,7 @@
 import UIKit
 import SexyTooltip
 import CoreLocation
+import FirebaseAnalytics
 
 class Routing_VC: Sub_UIViewController {
 
@@ -59,6 +60,11 @@ class Routing_VC: Sub_UIViewController {
 	
 	func getTrip() {
 		if fromStop != nil && toStop != nil && fromStop != toStop {
+            FIRAnalytics.logEvent(withName: "viewed_route", parameters: [
+                "from": fromStop!.name as NSObject,
+                "to": toStop!.name as NSObject
+                ])
+            
 			showLoading()
 			api.getTrip(from: fromStop!, to: toStop!, completion: {
 				trip in

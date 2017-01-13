@@ -327,17 +327,17 @@
 		75FB9B4A1D8D5399000638B6 /* MyCiti_V2 */ = {
 			isa = PBXGroup;
 			children = (
-				7583F0CE1E0EB082005F242D /* Alerts */,
-				7583F0BF1E0DC420005F242D /* API */,
-				752CCAF81E019DBB009FC24A /* Routing */,
 				756ED40F1DCBD967001C6A62 /* Cells */,
+				7583F0BF1E0DC420005F242D /* API */,
+				7583F0CE1E0EB082005F242D /* Alerts */,
+				752CCAF81E019DBB009FC24A /* Routing */,
 				756ED40A1DCBD376001C6A62 /* Main */,
 				756ED40B1DCBD384001C6A62 /* Map */,
 				756ED40C1DCBD433001C6A62 /* Stops */,
-				75FB9B8D1D8D7C8F000638B6 /* Subclassed */,
-				75FB9B8E1D8D7CA3000638B6 /* Supporting */,
 				756ED41A1DCBE685001C6A62 /* Times */,
 				7557B96A1E097DED00800126 /* About */,
+				75FB9B8E1D8D7CA3000638B6 /* Supporting */,
+				75FB9B8D1D8D7C8F000638B6 /* Subclassed */,
 				759296961DFF582B00BBA2F2 /* GoogleService-Info.plist */,
 				75FB9B571D8D5399000638B6 /* Info.plist */,
 				75FB9B541D8D5399000638B6 /* LaunchScreen.storyboard */,
@@ -367,13 +367,13 @@
 		75FB9B8D1D8D7C8F000638B6 /* Subclassed */ = {
 			isa = PBXGroup;
 			children = (
+				75FB9B821D8D7C83000638B6 /* Sub_UIViewController.swift */,
 				75FB9B7C1D8D7C83000638B6 /* Sub_UIButton.swift */,
 				75FB9B7D1D8D7C83000638B6 /* Sub_UIImageView.swift */,
 				75FB9B7E1D8D7C83000638B6 /* Sub_UILabel.swift */,
 				75FB9B7F1D8D7C83000638B6 /* Sub_UINavigationController.swift */,
 				75FB9B801D8D7C83000638B6 /* Sub_UISegmentedControl.swift */,
 				75FB9B811D8D7C83000638B6 /* Sub_UITextField.swift */,
-				75FB9B821D8D7C83000638B6 /* Sub_UIViewController.swift */,
 				757D9F2B1E00B4BF00ADA5F6 /* Sub_MGLPointAnnotation.swift */,
 			);
 			path = Subclassed;
@@ -897,6 +897,7 @@
 				INFOPLIST_FILE = MyCiti_V2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SoC.MyCiti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -919,6 +920,7 @@
 				INFOPLIST_FILE = MyCiti_V2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SoC.MyCiti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

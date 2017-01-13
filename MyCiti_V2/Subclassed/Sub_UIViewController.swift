@@ -15,6 +15,7 @@ class Sub_UIViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        (UIApplication.shared.delegate as! AppDelegate).activeViewController = self
 //		view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlueColorDark(), UIColor.flatBlackColorDark().darken(byPercentage: 0.3)])
         view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlack(), UIColor.flatBlackColorDark()])
 //		view.backgroundColor = UIColor.flatOrange()
@@ -42,9 +43,9 @@ class Sub_UIViewController: UIViewController {
 		self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
 	}
 	
-	func showLoading(cancelButton: Bool = true, _ completion: (() -> Void)? = nil) {
+    func showLoading(message: String = "Please wait...", cancelButton: Bool = true, _ completion: (() -> Void)? = nil) {
 		if loadingVisible == false {
-			present(getLoadingView(cancelButton: cancelButton), animated: false, completion: {
+            present(getLoadingView(message: message, cancelButton: cancelButton), animated: false, completion: {
 				self.loadingVisible = true
 				if completion != nil { completion!() }
 			})
@@ -67,8 +68,8 @@ class Sub_UIViewController: UIViewController {
 		hideLoading()
 	}
 	
-	func getLoadingView(cancelButton: Bool) -> UIAlertController {
-		let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+    func getLoadingView(message: String, cancelButton: Bool) -> UIAlertController {
+		let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
 		alert.view.tintColor = UIColor.black
 		
 		if cancelButton {

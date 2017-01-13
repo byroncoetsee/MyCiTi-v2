@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Alerts_VC: Sub_UIViewController {
 	
@@ -15,6 +16,8 @@ class Alerts_VC: Sub_UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		tblAlerts.register(UINib(nibName: "Alert_Cell", bundle: nil), forCellReuseIdentifier: "alert_cell")
+        
+        FIRAnalytics.logEvent(withName: "viewed_alerts", parameters: nil)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

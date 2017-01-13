@@ -115,13 +115,46 @@ class ObjectCreator: NSObject {
 	func jsonToAlert(heading: String, json:  JSON) -> Alert {
 		let body = json["body"].stringValue
 		let created = NSDate(timeIntervalSince1970: TimeInterval(json["created"].intValue)) as Date
+        
+        var clickable: Alert.Clickable? = nil
+        
+        if json["clickable"].exists() {
+            switch json["clickable"]["type"].stringValue {
+            case "url":
+                let content = Alert.Url(url: json["clickable"]["url"].stringValue) as AnyObject
+                clickable = Alert.Clickable(type: Alert.ClickableType.url, content: content)
+                break
+                
+            case "email":
+                let to = json["clickable"]["to"].stringValue
+                let subject = json["clickable"]["to"].stringValue
+                let content = Alert.Email(to: to, subject: subject, body: "") as AnyObject
+                clickable = Alert.Clickable(type: Alert.ClickableType.email, content: content)
+                break
+                
+            default: break
+            }
+        }
+        
+        let condition = json["condition"].stringValue
+        return Alert(heading: heading, body: body, created: created, condition: getAlertCondition(condition: condition), clickable: clickable)
 		
-		switch json["condition"].stringValue {
-		case "information": return Alert(heading: heading, body: body, created: created, condition: .information)
-		case "positive": return Alert(heading: heading, body: body, created: created, condition: .positive)
-		case "notice": return Alert(heading: heading, body: body, created: created, condition: .notice)
-		case "warning": return Alert(heading: heading, body: body, created: created, condition: .warning)
-		default: return Alert(heading: heading, body: body, created: created, condition: .information)
-		}
+//		switch json["condition"].stringValue {
+//        case "information": return Alert(heading: heading, body: body, created: created, condition: .information, clickable: clickable)
+//		case "positive": return Alert(heading: heading, body: body, created: created, condition: .positive)
+//		case "notice": return Alert(heading: heading, body: body, created: created, condition: .notice)
+//		case "warning": return Alert(heading: heading, body: body, created: created, condition: .warning)
+//		default: return Alert(heading: heading, body: body, created: created, condition: .information)
+//		}
 	}
+    
+    func getAlertCondition(condition: String) -> AlertCondition {
+        switch condition {
+        case "information": return .information
+        case "positive": return .positive
+        case "notice": return .notice
+        case "warning": return .warning
+        default: return .information
+        }
+    }
 }

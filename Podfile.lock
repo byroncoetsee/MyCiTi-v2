@@ -54,6 +54,9 @@ PODS:
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FLAnimatedImage (1.0.12)
+  - GBDeviceInfo (4.2.2):
+    - GBDeviceInfo/Core (= 4.2.2)
+  - GBDeviceInfo/Core (4.2.2)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -72,6 +75,8 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - pop (1.0.9)
+  - RSEmailFeedback (1.0.0):
+    - GBDeviceInfo (~> 4.2)
   - SCLAlertView (0.7.0)
   - SexyTooltip (1.2.4):
     - pop (~> 1.0)
@@ -92,6 +97,7 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - Mapbox-iOS-SDK
   - PINRemoteImage
+  - RSEmailFeedback
   - SCLAlertView
   - SexyTooltip
   - SQLite.swift
@@ -123,6 +129,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   FirebaseRemoteConfig: 383a9afe0a9291ada949e3f615257928a823b594
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GBDeviceInfo: 0a6e2fc04989ce248572bb988f1a764102eb0e5d
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
@@ -130,6 +137,7 @@ SPEC CHECKSUMS:
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  RSEmailFeedback: f30bfcd903196aaace2b1a476beb0cf1b282ffeb
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SexyTooltip: 29db17bed73347f5df0e86bf8e5d18876a64a1ce
   SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
@@ -137,6 +145,6 @@ SPEC CHECKSUMS:
   SwiftSortUtils: d477b23ddcb015ff1559adb4b63b7ab945f0de7a
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 0bb73e2ec8f4894611d024f71f8e395884afa358
+PODFILE CHECKSUM: 252946726c748fab5876ee6836b834f52a476b9f
 
 COCOAPODS: 1.1.1

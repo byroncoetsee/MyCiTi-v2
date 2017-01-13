@@ -17,6 +17,7 @@ import SCLAlertView
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
+    var activeViewController: Sub_UIViewController!
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -42,6 +43,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		print(userInfo)
 	}
+    
+//    func getVisibleViewController(_ rootViewController: UIViewController?) -> UIViewController? {
+//        
+//        var rootVC = rootViewController
+//        if rootVC == nil {
+//            rootVC = UIApplication.shared.keyWindow?.rootViewController
+//        }
+//        
+//        if rootVC?.presentedViewController == nil {
+//            return rootVC
+//        }
+//        
+//        if let presented = rootVC?.presentedViewController {
+//            if presented.isKind(of: UINavigationController.self) {
+//                let navigationController = presented as! UINavigationController
+//                return navigationController.viewControllers.last!
+//            }
+//            
+//            if presented.isKind(of: UITabBarController.self) {
+//                let tabBarController = presented as! UITabBarController
+//                return tabBarController.selectedViewController!
+//            }
+//            
+//            return getVisibleViewController(presented)
+//        }
+//        return nil
+//    }
 	
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
