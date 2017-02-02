@@ -13,6 +13,8 @@ import FirebaseCrash
 class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
 	
 	@IBOutlet weak var map: MGLMapView!
+    
+    var alreadyCentered = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -47,11 +49,14 @@ class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
 	}
     
     func zoomToUser() {
-        if locManager.locManager.location != nil {
-            map.setCenter(locManager.locManager.location!.coordinate, zoomLevel: 15, animated: true)
+        if alreadyCentered == false {
+            alreadyCentered = true
+            if locManager.locManager.location != nil {
+                map.setCenter(locManager.locManager.location!.coordinate, zoomLevel: 15, animated: true)
+            }
         }
     }
-	
+    
 	func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool { return true }
 	func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         FIRCrashMessage((annotation as! Sub_MGLPointAnnotation).stop.name)

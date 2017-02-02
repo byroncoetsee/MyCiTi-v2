@@ -120,6 +120,7 @@ class ObjectCreator: NSObject {
         
         if json["clickable"].exists() {
             switch json["clickable"]["type"].stringValue {
+                
             case "url":
                 let content = Alert.Url(url: json["clickable"]["url"].stringValue) as AnyObject
                 clickable = Alert.Clickable(type: Alert.ClickableType.url, content: content)
@@ -138,14 +139,6 @@ class ObjectCreator: NSObject {
         
         let condition = json["condition"].stringValue
         return Alert(heading: heading, body: body, created: created, condition: getAlertCondition(condition: condition), clickable: clickable)
-		
-//		switch json["condition"].stringValue {
-//        case "information": return Alert(heading: heading, body: body, created: created, condition: .information, clickable: clickable)
-//		case "positive": return Alert(heading: heading, body: body, created: created, condition: .positive)
-//		case "notice": return Alert(heading: heading, body: body, created: created, condition: .notice)
-//		case "warning": return Alert(heading: heading, body: body, created: created, condition: .warning)
-//		default: return Alert(heading: heading, body: body, created: created, condition: .information)
-//		}
 	}
     
     func getAlertCondition(condition: String) -> AlertCondition {

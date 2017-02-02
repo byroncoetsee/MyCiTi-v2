@@ -63,6 +63,11 @@ class Times_VC: Sub_UIViewController {
 			self.times = times
 			self.tblTimes.reloadData()
 			self.hideLoading()
+            
+            if !self.viewBlur.isHidden && self.tblTimes.visibleCells.count > 0 {
+                self.tblTimes.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
+                self.tblTimes.delegate!.tableView!(self.tblTimes, didSelectRowAt: IndexPath(row: 0, section: 0))
+            }
 		})
 	}
 
@@ -144,16 +149,25 @@ extension Times_VC {
     
     func updateCountdown() {
         let components = getTimerElements()
-        lblHours.text = String(format: "%02d", components.hours)
-        lblMinutes.text = String(format: "%02d", components.minutes)
-        lblSeconds.text = String(format: "%02d", components.seconds)
+        
+        if components == (0, 0, -1) {
+            hidePopup()
+//            countDownTimer?.invalidate()
+//            countDownTimer = nil
+        } else {
+            lblHours.text = String(format: "%02d", components.hours)
+            lblMinutes.text = String(format: "%02d", components.minutes)
+            lblSeconds.text = String(format: "%02d", components.seconds)
+        }
     }
 	
     func getTimerElements() -> (hours: Int, minutes: Int, seconds: Int) {
-		let interval = Int(abs(Date().timeIntervalSince(time!.depart)))
+//		let interval = Int(abs(Date().timeIntervalSince(time!.depart)))
+        let interval = Int(Date().timeIntervalSince(time!.depart)) * -1
 		let seconds: Int = interval % 60
 		let minutes: Int = (interval / 60) % 60
 		let hours: Int = interval / 3600
+        
 		return (hours, minutes, seconds)
 	}
 }

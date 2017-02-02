@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftDate
+import ChameleonFramework
 
 class Time_Cell: UITableViewCell {
 	
@@ -31,13 +32,17 @@ class Time_Cell: UITableViewCell {
 		if hours != nil && hours! > 0 {
 			lblRemaining.text = "\(hours!) hours \(mins!) minutes"
 		} else {
-			lblRemaining.text = "\(mins!) minutes"
+            if mins! == 0 {
+                lblRemaining.text = "Now"
+            } else {
+                lblRemaining.text = (mins == 1) ? "\(mins!) minute" : "\(mins!) minutes"
+            }
 		}
 		
 		lblTime.text = time.depart.string(dateStyle: .none, timeStyle: .short)
 		lblLine.text = time.line.shortName.replacingOccurrences(of: "Route ", with: "")
-		lblLine.backgroundColor = time.line.colour
-		lblLine.textColor = time.line.textColour
+		lblLine.backgroundColor = time.line.colour.flatten()
+		lblLine.textColor = UIColor(contrastingBlackOrWhiteColorOn: time.line.textColour, isFlat: true)
 		
 		layoutViews()
 	}

@@ -11,6 +11,7 @@ import ChameleonFramework
 import CoreLocation
 import FirebaseRemoteConfig
 import FirebaseDatabase
+import FirebaseAnalytics
 
 let global = Global()
 
@@ -247,4 +248,11 @@ class Global: NSObject {
 	override init() {
 		theme_textColour = theme_mainColour?.darken(byPercentage: 0.3)
 	}
+    
+    func firebaseEvent(name: String, params: [String : NSObject]) {
+        #if DEBUG
+        #else
+            FIRAnalytics.logEvent(withName: name, parameters: params)
+        #endif
+    }
 }
