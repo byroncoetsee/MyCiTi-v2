@@ -51,7 +51,9 @@ extension API {
 							completion(times)
 						}
 					}
-				}
+                } else {
+                    print("ERROR status code = \(response.response?.statusCode)")
+                }
 			}
 		}
 		fetchPage()
