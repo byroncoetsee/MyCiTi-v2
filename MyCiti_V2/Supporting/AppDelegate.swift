@@ -10,7 +10,6 @@ import UIKit
 import Mapbox
 import Firebase
 import FirebaseMessaging
-import UserNotifications
 import SwiftyJSON
 import SCLAlertView
 
@@ -28,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
 		application.registerUserNotificationSettings(settings)
-		
 		application.registerForRemoteNotifications()
+        
 		application.applicationIconBadgeNumber = 0
 		
 		return true
