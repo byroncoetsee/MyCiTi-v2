@@ -4,9 +4,19 @@ PODS:
     - Alamofire (~> 4.0)
     - SwiftyJSON (~> 3.1)
   - BadgeSwift (4.0.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - FBSDKCoreKit (4.24.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.24.0):
+    - FBSDKCoreKit
   - Firebase/Core (3.11.0):
     - FirebaseAnalytics (= 3.6.0)
     - FirebaseCore (= 3.4.6)
@@ -66,6 +76,14 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - Mapbox-iOS-SDK (3.3.7)
+  - Parse (1.15.0):
+    - Bolts/Tasks (~> 1.8)
+  - ParseFacebookUtilsV4 (1.11.1):
+    - Bolts/Tasks (>= 1.6)
+    - FBSDKCoreKit (~> 4.10)
+    - FBSDKLoginKit (~> 4.10)
+    - FBSDKTVOSKit (~> 4.10)
+    - Parse (~> 1.12)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
     - PINRemoteImage/FLAnimatedImage (= 2.1.4)
@@ -96,6 +114,8 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - Mapbox-iOS-SDK
+  - Parse (~> 1.14)
+  - ParseFacebookUtilsV4
   - PINRemoteImage
   - RSEmailFeedback
   - SCLAlertView
@@ -119,7 +139,10 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AlamofireSwiftyJSON: 5a49196b8b061e32f5ebc84fa0815300bd8a974e
   BadgeSwift: b291cf8ca88674d61cd781f14988272988f4dff4
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
+  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
@@ -134,6 +157,8 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Mapbox-iOS-SDK: 142301fa63a6719cbd2eacc0f9e8bf36c65930d9
+  Parse: c0519f8fbf57bd0334f75cd22ac032d86ee55464
+  ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -145,6 +170,6 @@ SPEC CHECKSUMS:
   SwiftSortUtils: d477b23ddcb015ff1559adb4b63b7ab945f0de7a
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 252946726c748fab5876ee6836b834f52a476b9f
+PODFILE CHECKSUM: 6ffd252447b97c12dca64ce588195d97cba50be3
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1

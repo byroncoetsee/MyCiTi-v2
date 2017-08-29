@@ -17,6 +17,9 @@ target 'MyCiti_V2' do
   pod 'BadgeSwift'
   pod 'SwiftSortUtils', :git => 'https://github.com/dsmatter/SwiftSortUtils', :branch => 'swift-3'
   pod 'RSEmailFeedback'
+  
+  pod 'Parse', '~> 1.14'
+  pod 'ParseFacebookUtilsV4'
 
   target 'MyCiti_V2Tests' do
     inherit! :search_paths

@@ -173,6 +173,9 @@ class Main_VC: Sub_UIViewController {
 			if global.firebaseConfig.configValue(forKey: "mainHeading").stringValue != nil {
 				self.lblHeading.text = global.firebaseConfig.configValue(forKey: "mainHeading").stringValue
 			}
+            
+            // Update stop IDs
+            dataManager.updateStops()
 		})
 	}
 
