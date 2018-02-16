@@ -152,8 +152,6 @@ extension Times_VC {
         
         if components == (0, 0, -1) {
             hidePopup()
-//            countDownTimer?.invalidate()
-//            countDownTimer = nil
         } else {
             lblHours.text = String(format: "%02d", components.hours)
             lblMinutes.text = String(format: "%02d", components.minutes)
@@ -162,7 +160,6 @@ extension Times_VC {
     }
 	
     func getTimerElements() -> (hours: Int, minutes: Int, seconds: Int) {
-//		let interval = Int(abs(Date().timeIntervalSince(time!.depart)))
         let interval = Int(Date().timeIntervalSince(time!.depart)) * -1
 		let seconds: Int = interval % 60
 		let minutes: Int = (interval / 60) % 60
