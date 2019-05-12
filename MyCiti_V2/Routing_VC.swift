@@ -40,10 +40,10 @@ class Routing_VC: Sub_UIViewController {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		btnFromBig.layer.cornerRadius = btnFromBig.frame.height/2
-		btnFromBig.backgroundColor = UIColor.flatGreen()
+        btnFromBig.backgroundColor = UIColor.flatGreen
 		
 		btnToBig.layer.cornerRadius = btnFromBig.frame.height/2
-		btnToBig.backgroundColor = UIColor.flatRed()
+        btnToBig.backgroundColor = UIColor.flatRed
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {

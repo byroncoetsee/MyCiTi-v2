@@ -143,7 +143,7 @@ extension Stops_VC {
         if handler != nil {
             btnIcon.setImage(UIImage(named: "checked"), for: .normal)
             btnIcon.imageView?.image! = btnIcon.imageView!.image!.withRenderingMode(.alwaysTemplate)
-            btnIcon.imageView?.tintColor = UIColor.flatBlue()
+            btnIcon.imageView?.tintColor = UIColor.flatBlue
         }
         
 		let stopLocation = CLLocation(latitude: stop.coords.latitude, longitude: stop.coords.longitude)

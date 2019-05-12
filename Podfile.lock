@@ -37,17 +37,17 @@ PODS:
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCore (3.4.6):
     - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseCrash (1.1.4):
     - FirebaseAnalytics (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/Logger (~> 2.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FirebaseDatabase (3.1.1):
     - FirebaseAnalytics (~> 3.5)
   - FirebaseInstanceID (1.0.8)
@@ -62,7 +62,7 @@ PODS:
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
   - FLAnimatedImage (1.0.12)
   - GBDeviceInfo (4.2.2):
     - GBDeviceInfo/Core (= 4.2.2)
@@ -73,7 +73,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/Logger (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.0)":
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - Mapbox-iOS-SDK (3.3.7)
   - Parse (1.15.0):
@@ -108,7 +108,7 @@ PODS:
 DEPENDENCIES:
   - AlamofireSwiftyJSON
   - BadgeSwift
-  - ChameleonFramework/Swift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Firebase/Crash
   - Firebase/Database
   - Firebase/Messaging
@@ -125,12 +125,51 @@ DEPENDENCIES:
   - SwiftSortUtils (from `https://github.com/dsmatter/SwiftSortUtils`, branch `swift-3`)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireSwiftyJSON
+    - BadgeSwift
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCrash
+    - FirebaseDatabase
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - FirebaseRemoteConfig
+    - FLAnimatedImage
+    - GBDeviceInfo
+    - GoogleInterchangeUtilities
+    - GoogleSymbolUtilities
+    - GoogleToolboxForMac
+    - Mapbox-iOS-SDK
+    - Parse
+    - ParseFacebookUtilsV4
+    - PINCache
+    - PINRemoteImage
+    - pop
+    - RSEmailFeedback
+    - SCLAlertView
+    - SexyTooltip
+    - SQLite.swift
+    - SwiftDate
+    - SwiftyJSON
+
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
   SwiftSortUtils:
     :branch: swift-3
     :git: https://github.com/dsmatter/SwiftSortUtils
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
   SwiftSortUtils:
     :commit: 5c6f5e5c8bee1a91bc48e962712257a5f11db8d8
     :git: https://github.com/dsmatter/SwiftSortUtils
@@ -146,7 +185,7 @@ SPEC CHECKSUMS:
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
-  FirebaseCrash: 34f0349908ec87945a5ae96c402e7201a3f3aede
+  FirebaseCrash: 16dd3d538dcd28ad0e7599ff2fd86194c60fa73a
   FirebaseDatabase: 6de92187481ff0e8e124064f21742e95ee883b02
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
@@ -158,7 +197,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Mapbox-iOS-SDK: 142301fa63a6719cbd2eacc0f9e8bf36c65930d9
   Parse: c0519f8fbf57bd0334f75cd22ac032d86ee55464
-  ParseFacebookUtilsV4: 2f30c2b7021c8005d3042781da7ef87d06589421
+  ParseFacebookUtilsV4: bd56a321d78e0880a9594f7ca433ffb1d6ed63c3
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -170,6 +209,6 @@ SPEC CHECKSUMS:
   SwiftSortUtils: d477b23ddcb015ff1559adb4b63b7ab945f0de7a
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 6ffd252447b97c12dca64ce588195d97cba50be3
+PODFILE CHECKSUM: 60a90abf48e1f3a1b179616d1c3737019c37922f
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.6.1

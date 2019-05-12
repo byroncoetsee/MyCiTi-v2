@@ -6,7 +6,7 @@ target 'MyCiti_V2' do
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Messaging'
   pod 'Firebase/Crash'
-  pod 'ChameleonFramework/Swift'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'PINRemoteImage'
   pod 'Mapbox-iOS-SDK'
   pod 'SwiftyJSON'

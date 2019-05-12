@@ -24,7 +24,7 @@ class Main_VC: Sub_UIViewController {
 
     override func viewDidLoad() {
 		super.viewDidLoad()
-        view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlueColorDark(), UIColor.flatBlackColorDark().darken(byPercentage: 0.3)])
+        view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlue, UIColor.flatBlack.darken(byPercentage: 0.3)!])
 		
 		btnRoutePlanner.isHidden = true
 		btnTimes.isHidden = true
