@@ -133,6 +133,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 			locManager.startUpdatingLocation()
 			break
 		case .authorizedWhenInUse:
+            locManager.startUpdatingLocation()
 			break
 		case .denied, .restricted:
 			break
