@@ -52,6 +52,7 @@
 		75FB9B8B1D8D7C83000638B6 /* Sub_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB9B811D8D7C83000638B6 /* Sub_UITextField.swift */; };
 		75FB9B8C1D8D7C83000638B6 /* Sub_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB9B821D8D7C83000638B6 /* Sub_UIViewController.swift */; };
 		75FB9B901D8D7FC8000638B6 /* Main_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB9B8F1D8D7FC8000638B6 /* Main_VC.swift */; };
+		C9BAF96C228C817600846E56 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BAF96B228C817600846E56 /* CoreLocation.framework */; };
 		D55D8011DCAA218BBB93F942 /* Pods_MyCiti_V2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21561D7CABC74CDE15E8567 /* Pods_MyCiti_V2.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		B15C6C52154A78753E2C41BC /* Pods-MyCiti_V2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCiti_V2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCiti_V2Tests/Pods-MyCiti_V2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B606BBBE753DA2ED9F1C22CA /* Pods_MyCiti_V2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCiti_V2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21561D7CABC74CDE15E8567 /* Pods_MyCiti_V2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCiti_V2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9BAF96B228C817600846E56 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D747251145DB63159D26BB6D /* Pods-MyCiti_V2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCiti_V2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCiti_V2/Pods-MyCiti_V2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BAF96C228C817600846E56 /* CoreLocation.framework in Frameworks */,
 				D55D8011DCAA218BBB93F942 /* Pods_MyCiti_V2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +181,7 @@
 		6F96BBC0B4C54FA069ABB760 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9BAF96B228C817600846E56 /* CoreLocation.framework */,
 				C21561D7CABC74CDE15E8567 /* Pods_MyCiti_V2.framework */,
 				B606BBBE753DA2ED9F1C22CA /* Pods_MyCiti_V2Tests.framework */,
 				56F83DFA8952EAAAF626C593 /* Pods_MyCiti_V2UITests.framework */,

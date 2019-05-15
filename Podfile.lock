@@ -17,6 +17,8 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.24.0):
     - FBSDKCoreKit
+  - Firebase/Analytics (3.11.0):
+    - Firebase/Core
   - Firebase/Core (3.11.0):
     - FirebaseAnalytics (= 3.6.0)
     - FirebaseCore (= 3.4.6)
@@ -109,6 +111,7 @@ DEPENDENCIES:
   - AlamofireSwiftyJSON
   - BadgeSwift
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - Firebase/Analytics
   - Firebase/Crash
   - Firebase/Database
   - Firebase/Messaging
@@ -209,6 +212,6 @@ SPEC CHECKSUMS:
   SwiftSortUtils: d477b23ddcb015ff1559adb4b63b7ab945f0de7a
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 60a90abf48e1f3a1b179616d1c3737019c37922f
+PODFILE CHECKSUM: 318c6a7b6e19977f38036ab56cfd0c9ef4a0d43c
 
 COCOAPODS: 1.6.1
