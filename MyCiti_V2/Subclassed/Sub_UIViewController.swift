@@ -17,7 +17,7 @@ class Sub_UIViewController: UIViewController {
         super.viewDidLoad()
         (UIApplication.shared.delegate as! AppDelegate).activeViewController = self
 //		view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlueColorDark(), UIColor.flatBlackColorDark().darken(byPercentage: 0.3)])
-        view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlack(), UIColor.flatBlackColorDark()])
+        view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatBlack, UIColor.flatBlackDark])
 //		view.backgroundColor = UIColor.flatOrange()
 //		view.backgroundColor = UIColor.flatNavyBlue()
 //		view.backgroundColor = UIColor.flatTeal()

@@ -40,19 +40,19 @@ class Alert_Cell: UITableViewCell {
 		
 		switch alert.condition! {
 		case .information:
-			viewColour.backgroundColor = UIColor.flatSkyBlue()
+            viewColour.backgroundColor = UIColor.flatSkyBlue
 			imgIcon.image = UIImage(named: "information")
 			break
 		case .positive:
-			viewColour.backgroundColor = UIColor.flatGreen()
+            viewColour.backgroundColor = UIColor.flatGreen
 			imgIcon.image = UIImage(named: "checked")
 			break
 		case .notice:
-			viewColour.backgroundColor = UIColor.flatYellowColorDark()
+            viewColour.backgroundColor = UIColor.flatYellowDark
 			imgIcon.image = UIImage(named: "notice")
 			break
 		case .warning:
-			viewColour.backgroundColor = UIColor.flatRed()
+            viewColour.backgroundColor = UIColor.flatRed
 			imgIcon.image = UIImage(named: "cross")
 			break
 		}

@@ -113,7 +113,7 @@ extension Times_VC: UITableViewDataSource, UITableViewDelegate {
 extension Times_VC {
 	
 	func setupPopupDesign() {
-		viewTopSection.backgroundColor = UIColor.flatBlack()
+        viewTopSection.backgroundColor = UIColor.flatBlack
         viewContainer.layer.cornerRadius = 10
         viewContainer.clipsToBounds = true
 	}

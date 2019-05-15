@@ -18,7 +18,7 @@ class About_VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatRedColorDark(), UIColor.flatRedColorDark().darken(byPercentage: 0.3)])
+        view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatRed, UIColor.flatRed.darken(byPercentage: 0.3)!])
         
         FIRAnalytics.logEvent(withName: "viewed_about", parameters: nil)
     }

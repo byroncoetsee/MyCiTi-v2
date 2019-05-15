@@ -16,7 +16,7 @@ class Sub_UIButton: UIButton {
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		backgroundColor = UIColor.clear
-		setTitleColor(UIColor.flatWhite(), for: UIControlState())
+        setTitleColor(UIColor.flatWhite, for: UIControlState())
 		self.addSubview(badge)
 		badge.isHidden = false
 	}
@@ -39,7 +39,7 @@ class Sub_UIButton: UIButton {
 	func customiseBadge(badge: BadgeSwift) {
 		badge.insets = CGSize(width: 4, height: 4)
 		badge.textColor = UIColor.white
-		badge.badgeColor = UIColor.flatRed()
+        badge.badgeColor = UIColor.flatRed
 	}
 	
 	func positionBadge(badge: UIView) {
