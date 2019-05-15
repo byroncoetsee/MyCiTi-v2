@@ -68,9 +68,53 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         
-        if let clregion = region {
-            logEvent(eventName: "geo_error", params: ["region": clregion.identifier])
+        let clError = error as! CLError
+        var eventParams: [String:Any] = [
+            "region": region?.identifier,
+            "errorCode": clError.code
+        ]
+        
+        // https://developer.apple.com/documentation/corelocation/clerror/code
+        switch clError.code {
+        case .locationUnknown: // Unable to acquire a location the right way
+            eventParams["message"] = "location unknown"
+            break
+        case .denied:   // Location service disabled or denied
+            eventParams["message"] = "location service denied"
+            break
+        case .network: // Network unavailable
+            eventParams["message"] = "network unavailable"
+            break
+        case .deferredFailed: // Didn't enter a proper deferred state
+            eventParams["message"] = "Didn't enter a proper deferred state"
+            break
+        case .regionMonitoringDenied, // monitor denied
+             .regionMonitoringFailure,// region cannot be monitored (5)
+             .regionMonitoringSetupDelayed,
+             .regionMonitoringResponseDelayed:
+            eventParams["message"] = "Monitoring failure"
+            if let clregion = region {
+                // stop the monitoring
+                self.stopMonitoring(region: clregion)
+            }
+            break
+        case .rangingFailure: // range failure
+            eventParams["message"] = "Range failure"
+            break
+        case .geocodeCanceled, // geocoding was cancelled
+            .geocodeFoundNoResult,
+            .geocodeFoundPartialResult:
+            eventParams["message"] = "Geocoding failure"
+            if let clregion = region {
+                // stop the monitoring
+                self.stopMonitoring(region: clregion)
+            }
+            break
+        default:
+            eventParams["message"] = clError.localizedDescription
+            break
         }
+        logEvent(eventName: "geo_error", params: eventParams)
     }
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -111,7 +155,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             return
         }
         let point = [latitude, longitude]
-        api.getStops(point: point, limit: 20) { (stops) in
+        var limit = 10
+        #if debug
+        limit = 5
+        #endif
+        api.getStops(point: point, limit: limit) { (stops) in
             stops.forEach({ (stop) in
                 let geotification = Geotification(coordinate: stop.coords,
                     radius: 200, identifier: stop.id, eventType: .onEntry)
