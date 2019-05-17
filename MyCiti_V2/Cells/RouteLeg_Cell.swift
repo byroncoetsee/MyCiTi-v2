@@ -48,7 +48,7 @@ class RouteLeg_Cell: UITableViewCell {
 		if lastWaypoint?.location != nil { lblAlight.text = lastWaypoint!.location!.address }
 		
 		if firstWaypoint?.depart != nil {
-			lblTime.text = firstWaypoint!.depart.string(custom: "HH:mm a")
+			lblTime.text = firstWaypoint!.depart.toString(DateToStringStyles.custom("HH:mm a"))
 		} else {
 			lblTime.text = ""
 		}

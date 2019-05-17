@@ -12,7 +12,7 @@ class Sub_UINavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue: UIColor.white])
     }
 	
 	func setTitle(title: String) {
@@ -33,12 +33,18 @@ class Sub_UINavigationController: UINavigationController {
 	func addTransitionLayer () {
 		let transition = CATransition()
 		transition.duration = 0.25
-		transition.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
-		transition.type = kCATransitionFade
+		transition.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeInEaseOut)
+		transition.type = CATransitionType.fade
 		view.layer.add(transition, forKey: nil)
 	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

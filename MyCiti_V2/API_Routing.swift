@@ -35,7 +35,7 @@ extension API {
 					]
 				]
 			],
-			"time": (Date().add(components: [.hour:-2])).formatToActiveRecord,
+			"time": Calendar.current.date(byAdding: .hour, value: -2, to: Date())!.formatToActiveRecord,
 			"only": [
 				"agencies": [ global.myciti.id ]
 			]

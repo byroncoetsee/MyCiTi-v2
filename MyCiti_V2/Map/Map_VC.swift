@@ -41,14 +41,14 @@ class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
         }
 	}
 	
-	func populateStops() {
+	@objc func populateStops() {
 		for stop in global.stopList {
 			let pin = Sub_MGLPointAnnotation(stop: stop)
 			self.map.addAnnotation(pin)
 		}
 	}
     
-    func zoomToUser() {
+    @objc func zoomToUser() {
         if alreadyCentered == false {
             alreadyCentered = true
             if locManager.locManager.location != nil {
@@ -59,7 +59,7 @@ class Map_VC: Sub_UIViewController, MGLMapViewDelegate {
     
 	func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool { return true }
 	func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        FIRCrashMessage((annotation as! Sub_MGLPointAnnotation).stop.name)
+        FirebaseCrashMessage((annotation as! Sub_MGLPointAnnotation).stop.name)
 		let vc = self.storyboard?.instantiateViewController(withIdentifier: "times_vc") as! Times_VC
 		vc.stop = (annotation as! Sub_MGLPointAnnotation).stop
 		self.navigationController?.pushViewController(vc, animated: false)

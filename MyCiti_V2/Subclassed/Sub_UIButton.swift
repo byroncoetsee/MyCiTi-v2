@@ -16,7 +16,7 @@ class Sub_UIButton: UIButton {
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		backgroundColor = UIColor.clear
-        setTitleColor(UIColor.flatWhite, for: UIControlState())
+		setTitleColor(UIColor.flatWhite, for: UIControl.State())
 		self.addSubview(badge)
 		badge.isHidden = false
 	}
@@ -39,7 +39,7 @@ class Sub_UIButton: UIButton {
 	func customiseBadge(badge: BadgeSwift) {
 		badge.insets = CGSize(width: 4, height: 4)
 		badge.textColor = UIColor.white
-        badge.badgeColor = UIColor.flatRed
+		badge.badgeColor = UIColor.flatRed()
 	}
 	
 	func positionBadge(badge: UIView) {
@@ -48,19 +48,19 @@ class Sub_UIButton: UIButton {
 		
 		constraints.append(NSLayoutConstraint(
 			item: badge,
-			attribute: NSLayoutAttribute.top,
-			relatedBy: NSLayoutRelation.equal,
+			attribute: NSLayoutConstraint.Attribute.top,
+			relatedBy: NSLayoutConstraint.Relation.equal,
 			toItem: self,
-			attribute: NSLayoutAttribute.topMargin,
+			attribute: NSLayoutConstraint.Attribute.topMargin,
 			multiplier: 1, constant: 0)
 		)
 		
 		constraints.append(NSLayoutConstraint(
 			item: badge,
-			attribute: NSLayoutAttribute.trailing,
-			relatedBy: NSLayoutRelation.equal,
+			attribute: NSLayoutConstraint.Attribute.trailing,
+			relatedBy: NSLayoutConstraint.Relation.equal,
 			toItem: self,
-			attribute: NSLayoutAttribute.trailingMargin,
+			attribute: NSLayoutConstraint.Attribute.trailingMargin,
 			multiplier: 1, constant: 0)
 		)
 		
@@ -69,7 +69,7 @@ class Sub_UIButton: UIButton {
 	
 	func fadeOut() {
 		DispatchQueue.main.async {
-			UIView.animate(withDuration: 0.5, animations: {_ in
+			UIView.animate(withDuration: 0.5, animations: {
 				self.alpha = 0
 			}, completion: {_ in
 				self.isHidden = true
@@ -80,9 +80,9 @@ class Sub_UIButton: UIButton {
 	func fadeIn() {
 		DispatchQueue.main.async {
 			self.isHidden = false
-			UIView.animate(withDuration: 0.5, animations: {_ in
+			UIView.animate(withDuration: 0.5) {
 				self.alpha = 1
-			})
+			}
 		}
 	}
 }

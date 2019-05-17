@@ -81,7 +81,7 @@ class Sub_UIViewController: UIViewController {
 		
 		let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
 		loadingIndicator.hidesWhenStopped = true
-		loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+		loadingIndicator.style = UIActivityIndicatorView.Style.gray
 		loadingIndicator.startAnimating()
 		
 		alert.view.addSubview(loadingIndicator)
@@ -92,8 +92,8 @@ class Sub_UIViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let transition = CATransition()
 		transition.duration = 0.5
-		transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-		transition.type = kCATransitionFade
+		transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+		transition.type = CATransitionType.fade
 		self.navigationController?.view.layer.add(transition, forKey: nil)
 	}
 	

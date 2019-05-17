@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var activeViewController: Sub_UIViewController!
 	var window: UIWindow?
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		MGLAccountManager.setAccessToken("pk.eyJ1IjoiYnlyb25jb2V0c2VlIiwiYSI6ImRacUQzS2sifQ.WbF5R5mwkikWyEHi6-EKyw")
-		FIRApp.configure()
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        MGLAccountManager.accessToken("pk.eyJ1IjoiYnlyb25jb2V0c2VlIiwiYSI6ImRacUQzS2sifQ.WbF5R5mwkikWyEHi6-EKyw")
+        FirebaseApp.configure()
 		
 		api.getToken()
 		

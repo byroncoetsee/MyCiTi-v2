@@ -39,7 +39,7 @@ class Time_Cell: UITableViewCell {
             }
 		}
 		
-		lblTime.text = time.depart.string(dateStyle: .none, timeStyle: .short)
+        lblTime.text = time.depart.toString(.standard)
 		lblLine.text = time.line.shortName.replacingOccurrences(of: "Route ", with: "")
 		lblLine.backgroundColor = time.line.colour.flatten()
 		lblLine.textColor = UIColor(contrastingBlackOrWhiteColorOn: time.line.textColour, isFlat: true)
