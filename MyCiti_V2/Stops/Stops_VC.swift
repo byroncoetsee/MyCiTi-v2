@@ -161,7 +161,7 @@ extension Stops_VC {
 		showClosestBar()
 	}
 	
-	func findClosestStop() {
+	@objc func findClosestStop() {
 		if locManager.locManager.location!.horizontalAccuracy > 500 { return }
 		let notificationName = NSNotification.Name(rawValue: LocationManagerNotification.locationUpdate.rawValue)
 		NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)

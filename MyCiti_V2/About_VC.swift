@@ -20,7 +20,7 @@ class About_VC: UIViewController {
 		
         view.backgroundColor = UIColor.init(gradientStyle: .radial, withFrame: view.frame, andColors: [UIColor.flatRed, UIColor.flatRed.darken(byPercentage: 0.3)!])
         
-        FIRAnalytics.logEvent(withName: "viewed_about", parameters: nil)
+        Analytics.logEvent("viewed_about", parameters: nil)
     }
 	
 	override func viewDidLayoutSubviews() {
@@ -29,12 +29,12 @@ class About_VC: UIViewController {
 	}
 	
 	@IBAction func openWIMT(_ sender: Any) {
-        FIRAnalytics.logEvent(withName: "opened_WIMT", parameters: nil)
+        Analytics.logEvent("opened_WIMT", parameters: nil)
 		UIApplication.shared.openURL(NSURL(string: "http://www.whereismytransport.com")! as URL)
 	}
 	
 	@IBAction func openInstagram(_ sender: Any) {
-        FIRAnalytics.logEvent(withName: "opened_instagram", parameters: nil)
+        Analytics.logEvent("opened_instagram", parameters: nil)
 		UIApplication.shared.openURL(NSURL(string: "instagram://user?username=byroncoetsee")! as URL)
 	}
 	

@@ -35,7 +35,7 @@ class Times_VC: Sub_UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-        FIRAnalytics.logEvent(withName: "viewed_times", parameters: [
+        Analytics.logEvent("viewed_times", parameters: [
             "name": stop.name as NSObject,
             "hour": Date().hour as NSObject
             ])
@@ -57,7 +57,7 @@ class Times_VC: Sub_UIViewController {
 		getTimes()
 	}
 	
-	func getTimes() {
+	@objc func getTimes() {
 		api.getTimes(forStop: stop, completion: {
 			times in
 			self.times = times
@@ -122,7 +122,7 @@ extension Times_VC {
 		self.time = time
         updateCountdown()
 		countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
-		lblTime.text = time.depart.string(custom: "hh:mm a")
+        lblTime.text = time.depart.toString(.custom("hh:mm a"))
 		lblLine.text = time.line.shortName
 		lblLine.textColor = time.line.colour
 		lblLineName.text = time.line.name
@@ -136,7 +136,7 @@ extension Times_VC {
 		})
 	}
 	
-	func hidePopup() {
+	@objc func hidePopup() {
 		countDownTimer?.invalidate()
 		countDownTimer = nil
 		self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -147,7 +147,7 @@ extension Times_VC {
 		})
 	}
     
-    func updateCountdown() {
+    @objc func updateCountdown() {
         let components = getTimerElements()
         
         if components == (0, 0, -1) {

@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import MyCiti_V2
 
 class MyCiti_V2Tests: XCTestCase {
     

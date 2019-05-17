@@ -31,7 +31,7 @@ extension API {
 				print("Token error... Retrying...\n\(error as Any)")
 				self.getToken()
 			} else {
-				guard let token = JSON(data: data!)["access_token"].string else { return }
+				guard let token = try! JSON(data: data!)["access_token"].string else { return }
 				self.token_oath = token
 				DispatchQueue.main.async(execute: {
 					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotOAuthToken"), object: nil)

@@ -108,7 +108,7 @@ class Main_VC: Sub_UIViewController {
                 if lastAlertsViewed == nil
                     || alert.created == (NSDate(timeIntervalSince1970: 0.0) as Date)
                     || alert.created.timeIntervalSinceReferenceDate > lastAlertsViewed!
-                    && alert.created > Date().add(components: [Calendar.Component.day:-3])
+                    && alert.created > Calendar.current.date(byAdding: .day, value: -1, to: Date())!
                 {
 					newAlertsCount += 1
 				}
@@ -128,7 +128,7 @@ class Main_VC: Sub_UIViewController {
 		spinnerAnnoun.stopAnimating()
 	}
 	
-	func gotStops() {
+	@objc func gotStops() {
 		NotificationCenter.default.removeObserver(self)
 		btnRoutePlanner.isHidden = false
 		btnTimes.isHidden = false
@@ -143,10 +143,10 @@ class Main_VC: Sub_UIViewController {
 	}
 	
 	func fadeButtons(fadeIn: Bool) {
-		UIView.animate(withDuration: 1, animations: {_ in
-			self.viewButtonContainer.alpha = (fadeIn == true) ? 1 : 0
-			self.viewButtonContainer.isHidden = !fadeIn
-		})
+        UIView.animate(withDuration: 1) {
+            self.viewButtonContainer.alpha = (fadeIn == true) ? 1 : 0
+            self.viewButtonContainer.isHidden = !fadeIn
+        }
 	}
 	
 	func fetchInformation() {

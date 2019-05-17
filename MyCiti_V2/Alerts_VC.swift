@@ -17,7 +17,7 @@ class Alerts_VC: Sub_UIViewController {
         super.viewDidLoad()
 		tblAlerts.register(UINib(nibName: "Alert_Cell", bundle: nil), forCellReuseIdentifier: "alert_cell")
         
-        FIRAnalytics.logEvent(withName: "viewed_alerts", parameters: nil)
+        Analytics.logEvent("viewed_alerts", parameters: nil)
     }
 	
 	override func viewDidAppear(_ animated: Bool) {

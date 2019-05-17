@@ -31,7 +31,7 @@ class Alert_Cell: UITableViewCell {
 		self.alert = alert
 		
         if alert.created != (NSDate(timeIntervalSince1970: 0.0) as Date) {
-            lblDate.text = alert.created.string(custom: "dd MMM, HH:ss a")
+            lblDate.text = alert.created.toString(.custom("dd MMM, HH:ss a"))
         } else {
             lblDate.text = "Now"
         }
@@ -77,7 +77,7 @@ class Alert_Cell: UITableViewCell {
         
         if selected {
             if alert.clickable != nil {
-                FIRAnalytics.logEvent(withName: "clicked_alert", parameters: [
+                Analytics.logEvent("clicked_alert", parameters: [
                     "name": alert.heading as NSObject
                     ])
                 

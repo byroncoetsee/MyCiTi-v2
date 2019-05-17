@@ -21,4 +21,8 @@ class Sub_MGLPointAnnotation: MGLPointAnnotation {
 		title = stop.name
 		subtitle = stop.agency.name
 	}
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

@@ -60,7 +60,7 @@ class Routing_VC: Sub_UIViewController {
 	
 	func getTrip() {
 		if fromStop != nil && toStop != nil && fromStop != toStop {
-            FIRAnalytics.logEvent(withName: "viewed_route", parameters: [
+            Analytics.logEvent("viewed_route", parameters: [
                 "from": fromStop!.name as NSObject,
                 "to": toStop!.name as NSObject
                 ])

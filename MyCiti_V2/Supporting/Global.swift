@@ -233,8 +233,8 @@ extension Double {
 
 class Global: NSObject {
 	
-	var firebaseConfig = FIRRemoteConfig.remoteConfig()
-	var firebaseDatabase = FIRDatabase.database().reference()
+    var firebaseConfig = RemoteConfig.remoteConfig()
+    var firebaseDatabase = Database.database().reference()
 	
 	let myciti = Agency(id: "5kcfZkKW0ku4Uk-A6j8MFA", name: "MyCiTi", culture: "en")
 	

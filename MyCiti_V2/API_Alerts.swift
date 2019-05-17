@@ -15,7 +15,7 @@ import SwiftSortUtils
 extension API {
 	
 	func fetchFirebaseAlerts(completion: @escaping (_ someAlerts : [Alert]) -> Void) {
-		global.firebaseDatabase.ref.observe(FIRDataEventType.value, with: {
+        global.firebaseDatabase.ref.observe(DataEventType.value, with: {
 			snapshot in
 			self.gotAlerts = true
 			if snapshot.value != nil {
