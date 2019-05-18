@@ -139,7 +139,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 			break
 		case .notDetermined:
 			break
-		}
+        @unknown default:
+            break
+        }
 	}
 	
 	func postNotification(name: LocationManagerNotification, information: [String : Any]) {
