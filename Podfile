@@ -21,7 +21,7 @@ target 'MyCiti_V2' do
   
   pod 'Parse' #, '~> 1.14'
 #  pod 'ParseFacebookUtilsV4'
-  pod 'Parse/FacebookUtils'
+#  pod 'Parse/FacebookUtils'
 
   target 'MyCiti_V2Tests' do
     inherit! :search_paths

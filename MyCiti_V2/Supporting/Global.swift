@@ -155,8 +155,8 @@ extension Date {
 	struct DateToRuby {
 		static let formatToActiveRecord: DateFormatter = {
 			let formatter = DateFormatter()
-			formatter.calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.ISO8601) as Calendar!
-			formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+            formatter.calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.ISO8601) as Calendar?
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
 			formatter.timeZone = NSTimeZone.local //(forSecondsFromGMT: 0) as TimeZone!
 			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 			return formatter
@@ -169,8 +169,8 @@ extension String {
 	struct DateFromRuby {
 		static let formatFromActiveRecord: DateFormatter = {
 			let formatter = DateFormatter()
-			formatter.calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.ISO8601) as Calendar!
-			formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+            formatter.calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.ISO8601) as Calendar?
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
 			formatter.timeZone = NSTimeZone.local //(forSecondsFromGMT: 0) as TimeZone!
 			formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 			return formatter

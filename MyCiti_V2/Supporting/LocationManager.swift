@@ -34,7 +34,7 @@ enum GeoState {
 ///   - eventName: the event name to log
 ///   - params: the parameters to add to the log
 public func logEvent(eventName:String, params: [String:Any]? = nil) {
-    FIRAnalytics.logEvent(withName: eventName, parameters: params as? [String : NSObject])
+    Analytics.logEvent(eventName, parameters: params as? [String : NSObject])
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
