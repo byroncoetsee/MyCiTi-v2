@@ -28,10 +28,14 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1IjoiYnlyb25jb2V0c2VlIiwiYSI6ImRacUQzS2sifQ.WbF5R5mwkikWyEHi6-EKyw</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app doesn&apos;t need access to your photos... This notice was an Apple requirement for some reason - so you can safely deny access.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app uses your location to determine the closest stop to you and to show your location on a map.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app doesn't need access to your photos... This notice was an Apple requirement for some reason - so you can safely deny access.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>The app uses your location purely for station stop analytics and to show your location on a map</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The app uses your location purely for station stop analytics and to show your location on a map</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

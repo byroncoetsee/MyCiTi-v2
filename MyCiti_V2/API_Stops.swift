@@ -13,7 +13,14 @@ import SwiftyJSON
 extension API {
 	
 	func getStops() { getStops(completionHandler: {stops in}) }
-	func getStops(completionHandler completion: @escaping ([Stop]) -> Void) {
+    
+    /// Gets the stops from the WhereIsMyTransport API.
+    ///
+    /// - Parameters:
+    ///   - point: The default point to search from
+    ///   - limit: the record limit
+    ///   - completion: the completion handler
+    func getStops(point: [Double] = [-33.92543,18.43644], limit: Int = 100, completionHandler completion: @escaping ([Stop]) -> Void) {
 		if token_oath == nil { print("OAuth token not found - getStops"); return }
 		
 		var stops: [Stop] = []
@@ -26,8 +33,10 @@ extension API {
 				"Accept": "application/json",
 				"Authorization" : "Bearer \(token_oath!)"
 			]
-			let params = [
+            let params: [String:Any] = [
 				"agencies" : "5kcfZkKW0ku4Uk-A6j8MFA",
+                "limit": limit,
+                "point": point,
 				"offset" : "\(pageCount*100)"
 			]
 			

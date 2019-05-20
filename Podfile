@@ -6,6 +6,7 @@ target 'MyCiti_V2' do
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Messaging'
   pod 'Firebase/Crash'
+  pod 'Firebase/Analytics'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'PINRemoteImage'
   pod 'Mapbox-iOS-SDK'
@@ -20,7 +21,7 @@ target 'MyCiti_V2' do
   
   pod 'Parse' #, '~> 1.14'
 #  pod 'ParseFacebookUtilsV4'
-  pod 'Parse/FacebookUtils'
+#  pod 'Parse/FacebookUtils'
 
   target 'MyCiti_V2Tests' do
     inherit! :search_paths
